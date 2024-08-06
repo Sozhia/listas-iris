@@ -1,7 +1,7 @@
 import csv
 import math
 import pathlib
-from Tkinter import Tk     # from tkinter import Tk for Python 3.x
+import tkinter as tk   # from tkinter import Tk for Python 3.x
 from tkinter.filedialog import askopenfilename
 
 def load_file(url):
@@ -11,8 +11,12 @@ def load_file(url):
   return dataset
 
 
+from tkinter import filedialog
 
+root = tk.Tk()
+root.withdraw()
 
-Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
-filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
-print(filename)
+file_path = filedialog.askopenfilename()
+
+dataset = load_file(file_path)
+print(dataset)
